@@ -16,7 +16,7 @@ directory = s3_connection.directories.get(S3_BUCKET)
 people = JSON.parse(open(EVERYPOLITICIAN_URL).read)["persons"]
 
 people.each do |person|
-  rada_id = person["identifiers"].find { |i| i["scheme"] == "rada" }["identifier"]
+  rada_id = person["identifiers"].find { |i| i["scheme"] == "verkhovna_rada" }["identifier"]
   file_name = "#{rada_id}.jpg"
   s3_url = "https://s3.amazonaws.com/ukraine-verkhovna-rada-deputy-images/#{file_name}"
 
